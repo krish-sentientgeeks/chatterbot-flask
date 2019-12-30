@@ -1,2 +1,2 @@
 heroku ps:scale web=1
-web: gunicorn index:app --preload --workers 1
+web: gunicorn app:run --preload --workers 1

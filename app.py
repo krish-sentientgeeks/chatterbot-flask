@@ -3,6 +3,8 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
 app = Flask(__name__)
+app.debug=True
+
 
 english_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
 #english_bot = ChatBot("English Bot",storage_adapter = "chatterbot.storage.MongoDatabaseAdapter",database = mongodb_name,database_uri = mongodb_uri)
@@ -11,7 +13,8 @@ trainer.train("chatterbot.corpus.english")
 
 @app.route("/")
 def home(a,b):
-    return render_template("index.html")
+    #return render_template("index.html",title='Home')
+    return "Hello world!" 
 
 @app.route("/get")
 def get_bot_response():
